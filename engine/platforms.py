@@ -1,12 +1,11 @@
 """
 Platform-specific prompt formatters.
 
-OpenArt  – supports a positive/negative pair plus optional parameter tags.
-           Best results come from structured, comma-separated token chains.
-
-Higgsfield – video/image generation focused on cinematic realism.
-             Needs motion intent, camera movement cues, and aspect ratio hints
-             baked into the prompt string itself.
+OpenArt    – Stable Diffusion image generation. Positive/negative pair + settings.
+Higgsfield – Cinematic video generation. Motion cues baked into prompt.
+Runway     – Gen-3 video generation. Subject/style separation + motion direction.
+Kling      – Realistic video generation. Prompt + motion mode + aspect ratio.
+Pika       – Short-form video generation. Prompt + motion score + parameters.
 """
 from __future__ import annotations
 
@@ -176,6 +175,218 @@ def format_higgsfield(prompt: BuiltPrompt, motion: Optional[str] = None) -> Form
 
     return FormattedPrompt(
         platform="higgsfield",
+        positive=positive,
+        negative=prompt.negative,
+        parameters=parameters,
+        copy_paste=copy_paste,
+    )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Runway ML Gen-3 formatter
+# ─────────────────────────────────────────────────────────────────────────────
+
+RUNWAY_MOTION_PRESETS: dict[str, str] = {
+    "portrait":        "camera slowly pushes in, subject holds still, subtle facial animation",
+    "landscape":       "camera slowly pans right with parallax depth, environmental motion",
+    "street":          "handheld camera slight drift, pedestrian movement in background",
+    "product":         "camera slowly orbits product, gentle 360 rotation reveal",
+    "architecture":    "camera tilts up to reveal full structure, slow crane",
+    "wildlife":        "camera tracks subject movement, telephoto compression",
+    "cinematic":       "slow dolly push-in, cinematic depth reveal",
+    "talking_head":    "camera very subtly pushes in toward face, micro handheld drift",
+    "techwear_street": "ultra-slow push-in toward subject, wet street reflection shimmer",
+    "techwear_closeup":"imperceptible creep in, rain droplets on skin micro-movement",
+    "techwear_wide":   "slow crane up from cobblestones to eye level, full reveal",
+    "techwear_neon":   "slow drift into neon light, steam particle movement",
+}
+
+RUNWAY_ASPECT: dict[str, str] = {
+    "portrait":     "768:1344",
+    "landscape":    "1344:768",
+    "street":       "768:1344",
+    "product":      "1024:1024",
+    "cinematic":    "1344:576",
+    "talking_head": "768:1344",
+    "techwear_street":  "768:1344",
+    "techwear_closeup": "768:1344",
+    "techwear_wide":    "768:1344",
+    "techwear_neon":    "768:1344",
+}
+
+
+def format_runway(
+    prompt: BuiltPrompt,
+    motion: Optional[str] = None,
+    duration_seconds: int = 5,
+) -> FormattedPrompt:
+    """
+    Format a BuiltPrompt for Runway Gen-3 Alpha.
+
+    Runway responds best to subject + action descriptions with motion direction
+    stated upfront. Negative prompts go in a separate field.
+    """
+    shot_type = prompt.config.shot_type
+    camera_motion = motion or RUNWAY_MOTION_PRESETS.get(shot_type, "slow subtle push-in")
+    aspect = RUNWAY_ASPECT.get(shot_type, "768:1344")
+
+    # Runway wants motion described as a fluid sentence, not token chains
+    motion_direction = (
+        f"{camera_motion}. "
+        f"Photorealistic, cinematic quality, no camera shake unless handheld specified."
+    )
+    positive = f"{motion_direction} {prompt.positive}"
+
+    parameters = {
+        "aspect_ratio":       aspect,
+        "duration_seconds":   duration_seconds,
+        "camera_motion":      camera_motion,
+        "style_preset":       "photorealistic",
+        "seed":               prompt.config.seed or "random",
+    }
+
+    copy_paste = (
+        f"[PROMPT]\n{positive}\n\n"
+        f"[NEGATIVE]\n{prompt.negative}\n\n"
+        f"[SETTINGS]\n"
+        + "\n".join(f"  {k}: {v}" for k, v in parameters.items())
+    )
+
+    return FormattedPrompt(
+        platform="runway",
+        positive=positive,
+        negative=prompt.negative,
+        parameters=parameters,
+        copy_paste=copy_paste,
+    )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Kling AI formatter
+# ─────────────────────────────────────────────────────────────────────────────
+
+KLING_MOTION_MODES: dict[str, str] = {
+    "portrait":        "standard",
+    "landscape":       "standard",
+    "street":          "standard",
+    "cinematic":       "pro",
+    "talking_head":    "standard",
+    "techwear_street": "pro",
+    "techwear_closeup":"pro",
+    "techwear_wide":   "pro",
+    "techwear_neon":   "pro",
+}
+
+KLING_CAMERA_CONTROLS: dict[str, dict] = {
+    "portrait":        {"type": "push_in",   "speed": 3},
+    "landscape":       {"type": "pan_right",  "speed": 2},
+    "street":          {"type": "handheld",   "speed": 4},
+    "cinematic":       {"type": "dolly_zoom", "speed": 2},
+    "talking_head":    {"type": "push_in",    "speed": 2},
+    "techwear_street": {"type": "push_in",    "speed": 1},
+    "techwear_closeup":{"type": "push_in",    "speed": 1},
+    "techwear_wide":   {"type": "crane_up",   "speed": 2},
+    "techwear_neon":   {"type": "push_in",    "speed": 2},
+}
+
+
+def format_kling(
+    prompt: BuiltPrompt,
+    motion: Optional[str] = None,
+    duration_seconds: int = 5,
+) -> FormattedPrompt:
+    """
+    Format a BuiltPrompt for Kling AI video generation.
+
+    Kling has explicit camera control modes and a motion mode (standard/pro).
+    Pro mode supports longer, more complex shots.
+    """
+    shot_type = prompt.config.shot_type
+    motion_mode = KLING_MOTION_MODES.get(shot_type, "standard")
+    camera_ctrl = KLING_CAMERA_CONTROLS.get(shot_type, {"type": "push_in", "speed": 2})
+
+    positive = (
+        f"Hyper-realistic cinematic video. {prompt.positive}, "
+        f"photorealistic, film quality, no artifacts"
+    )
+
+    parameters = {
+        "mode":               motion_mode,
+        "duration":           f"{duration_seconds}s",
+        "camera_type":        camera_ctrl["type"],
+        "camera_speed":       camera_ctrl["speed"],
+        "aspect_ratio":       "9:16" if shot_type in ("portrait", "talking_head", "techwear_street", "techwear_closeup", "techwear_wide", "techwear_neon") else "16:9",
+        "cfg_scale":          0.5,
+    }
+
+    copy_paste = (
+        f"[PROMPT]\n{positive}\n\n"
+        f"[NEGATIVE]\n{prompt.negative}\n\n"
+        f"[SETTINGS]\n"
+        + "\n".join(f"  {k}: {v}" for k, v in parameters.items())
+    )
+
+    return FormattedPrompt(
+        platform="kling",
+        positive=positive,
+        negative=prompt.negative,
+        parameters=parameters,
+        copy_paste=copy_paste,
+    )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Pika Labs formatter
+# ─────────────────────────────────────────────────────────────────────────────
+
+PIKA_CAMERA_MOVES: dict[str, str] = {
+    "portrait":        "zoom in",
+    "landscape":       "pan right",
+    "street":          "move right",
+    "cinematic":       "zoom in",
+    "talking_head":    "zoom in",
+    "techwear_street": "zoom in",
+    "techwear_closeup":"zoom in",
+    "techwear_wide":   "tilt up",
+    "techwear_neon":   "zoom in",
+}
+
+
+def format_pika(
+    prompt: BuiltPrompt,
+    motion: Optional[str] = None,
+    motion_strength: int = 1,
+) -> FormattedPrompt:
+    """
+    Format a BuiltPrompt for Pika Labs video generation.
+
+    Pika uses a simple prompt + camera motion command + motion strength (1-4).
+    Low motion strength (1-2) is most realistic.
+    """
+    shot_type = prompt.config.shot_type
+    camera_move = motion or PIKA_CAMERA_MOVES.get(shot_type, "zoom in")
+
+    positive = (
+        f"{prompt.positive}, photorealistic, high quality, cinematic"
+    )
+
+    parameters = {
+        "camera_motion":   camera_move,
+        "motion_strength": motion_strength,
+        "aspect_ratio":    "9:16" if shot_type in ("portrait", "street", "talking_head", "techwear_street", "techwear_closeup", "techwear_wide", "techwear_neon") else "16:9",
+        "fps":             24,
+        "quality":         "1080p",
+    }
+
+    copy_paste = (
+        f"[PROMPT]\n{positive}\n\n"
+        f"[NEGATIVE]\n{prompt.negative}\n\n"
+        f"[SETTINGS]\n"
+        + "\n".join(f"  {k}: {v}" for k, v in parameters.items())
+    )
+
+    return FormattedPrompt(
+        platform="pika",
         positive=positive,
         negative=prompt.negative,
         parameters=parameters,
