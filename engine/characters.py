@@ -195,8 +195,8 @@ CHARACTERS: dict[str, Character] = {
             "Arc'teryx black/tan geometric patterned beanie pulled low",
             "black balaclava neck gaiter",
             "Arc'teryx black sling crossbody bag",
-            "black technical tactical pants",
-            "black heavy-duty boots",
+            "Arc'teryx black technical pants",
+            "Salomon trail running shoes",
         ],
         environment_tokens=[
             "wet rain-slicked cobblestone British high street at blue hour dusk",
@@ -239,6 +239,8 @@ CHARACTERS: dict[str, Character] = {
             "Oakley wraparound sunglasses with red orange mirrored lenses",
             "black balaclava neck gaiter",
             "Arc'teryx black sling bag",
+            "Arc'teryx black technical pants",
+            "Salomon trail running shoes",
         ],
         environment_tokens=[
             "wet cobblestone high street with bokeh shop lights",
