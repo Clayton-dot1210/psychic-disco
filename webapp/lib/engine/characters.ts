@@ -1,0 +1,156 @@
+import type { Character, CharacterKey } from "./types";
+
+export const CHARACTERS: Record<string, Character> = {
+  creator: {
+    key: "creator",
+    name: "The Creator",
+    archetype: "creator",
+    ageRange: "mid-20s",
+    genderExpression: "woman",
+    style: "casual-chic content creator aesthetic",
+    wardrobeTokens: ["oversized neutral-tone hoodie", "minimal delicate jewelry", "clean white sneakers"],
+    environmentTokens: ["minimalist home studio with soft ring light", "bright natural-light apartment interior"],
+    expressionTokens: ["genuine warm smile", "direct confident eye contact with camera"],
+    skinDetail: "natural skin texture, pore-level detail, no airbrushing",
+    hairDetail: "effortless natural hair, lived-in texture",
+  },
+  expert: {
+    key: "expert",
+    name: "The Expert",
+    archetype: "expert",
+    ageRange: "early 30s",
+    genderExpression: "man",
+    style: "polished professional authority figure",
+    wardrobeTokens: ["well-fitted crisp white dress shirt", "subtle minimal watch"],
+    environmentTokens: ["clean modern home office with bookshelf background", "pure white seamless background"],
+    expressionTokens: ["confident composed authority expression", "direct steady gaze into lens"],
+    skinDetail: "natural skin texture, no airbrushing",
+    hairDetail: "neat professionally groomed hair",
+    extraTokens: ["trustworthy demeanor", "calm authority"],
+  },
+  everyday: {
+    key: "everyday",
+    name: "The Everyday Person",
+    archetype: "everyday",
+    ageRange: "late 20s",
+    genderExpression: "person",
+    style: "relatable authentic real-life look",
+    wardrobeTokens: ["comfortable casual t-shirt", "well-worn jeans"],
+    environmentTokens: ["cozy lived-in living room", "casual kitchen background"],
+    expressionTokens: ["genuine candid unposed expression", "natural human emotion"],
+    skinDetail: "natural skin texture, realistic imperfections, no airbrushing",
+    hairDetail: "natural unstyled everyday hair",
+    extraTokens: ["real human imperfections", "organic authenticity"],
+  },
+  influencer: {
+    key: "influencer",
+    name: "The Influencer",
+    archetype: "influencer",
+    ageRange: "mid-20s",
+    genderExpression: "woman",
+    style: "high-fashion aspirational lifestyle influencer",
+    wardrobeTokens: ["on-trend curated outfit", "designer accessories"],
+    environmentTokens: ["luxury light-filled apartment with curated decor", "upscale coffee shop with marble surfaces"],
+    expressionTokens: ["radiant confident editorial smile", "captivating magnetic presence"],
+    skinDetail: "flawless natural makeup, luminous skin",
+    hairDetail: "perfectly styled glossy hair",
+    extraTokens: ["aspirational glow", "high-end editorial quality"],
+  },
+  entrepreneur: {
+    key: "entrepreneur",
+    name: "The Entrepreneur",
+    archetype: "entrepreneur",
+    ageRange: "early 30s",
+    genderExpression: "man",
+    style: "driven modern entrepreneur hustle aesthetic",
+    wardrobeTokens: ["fitted dark premium crewneck", "clean minimal luxury watch"],
+    environmentTokens: ["sleek modern coworking space", "minimalist private office"],
+    expressionTokens: ["intense focused driven expression", "self-made confident authority"],
+    skinDetail: "natural skin texture, no airbrushing",
+    hairDetail: "clean sharp fade or well-groomed hair",
+    extraTokens: ["sharp focused intensity", "successful grounded energy"],
+  },
+
+  // ── Character 28 — built from reference images ─────────────────────────────
+  character_28: {
+    key: "character_28",
+    name: "Character 28",
+    archetype: "urban_explorer",
+    ageRange: "28-year-old",
+    genderExpression: "man",
+    style: "dark techwear urban explorer, Arc'teryx gorpcore aesthetic, cinematic silent protagonist energy",
+    wardrobeTokens: [
+      "Arc'teryx black technical shell jacket with hood",
+      "Arc'teryx black/tan geometric patterned beanie pulled low",
+      "black balaclava neck gaiter",
+      "Arc'teryx black sling crossbody bag",
+      "Arc'teryx black technical pants",
+      "Salomon trail running shoes",
+    ],
+    environmentTokens: [
+      "wet rain-slicked cobblestone British high street at blue hour dusk",
+      "neon-lit dystopian urban alley with steam and graffiti",
+      "overcast grey city streets with bokeh shop lights in background",
+      "rain-wet steps of urban architecture at dusk",
+    ],
+    expressionTokens: [
+      "cold intense stoic expression, thousand-yard stare",
+      "calm unreadable intensity, silent protagonist energy",
+      "slight jaw tension, composed under pressure",
+    ],
+    skinDetail:
+      "natural skin texture, visible pores, light freckle scatter, no airbrushing, realistic imperfections, rain moisture on skin",
+    hairDetail: "short dark hair hidden under Arc'teryx beanie",
+    extraTokens: [
+      "lean athletic build",
+      "sharp defined jaw",
+      "hazel brown eyes",
+      "wet rain droplets on jacket",
+      "blue hour ambient street light",
+      "moody cinematic urban atmosphere",
+    ],
+  },
+  character_28_shades: {
+    key: "character_28_shades",
+    name: "Character 28 (Sunglasses)",
+    archetype: "urban_explorer",
+    ageRange: "28-year-old",
+    genderExpression: "man",
+    style: "dark techwear urban explorer, Arc'teryx gorpcore, Oakley mirrored lens variant",
+    wardrobeTokens: [
+      "Arc'teryx black technical shell jacket",
+      "Arc'teryx black/tan geometric patterned beanie",
+      "Oakley wraparound sunglasses with red orange mirrored lenses",
+      "black balaclava neck gaiter",
+      "Arc'teryx black sling bag",
+      "Arc'teryx black technical pants",
+      "Salomon trail running shoes",
+    ],
+    environmentTokens: [
+      "wet cobblestone high street with bokeh shop lights",
+      "overcast British street at dusk",
+      "rain-wet urban steps, grey sky",
+    ],
+    expressionTokens: [
+      "stoic unreadable face behind mirrored lenses",
+      "cold composed authority through tinted glasses",
+    ],
+    skinDetail: "natural skin texture, realistic pores, no airbrushing, rain moisture on skin surface",
+    hairDetail: "short dark hair under Arc'teryx beanie",
+    extraTokens: [
+      "lean athletic build",
+      "sharp defined jaw",
+      "red orange mirrored lens reflection of street",
+      "wet rain on jacket surface",
+      "moody blue hour street atmosphere",
+    ],
+  },
+};
+
+export function getCharacter(key: CharacterKey): Character | undefined {
+  return CHARACTERS[key];
+}
+
+export function listCharacters(): Character[] {
+  return Object.values(CHARACTERS);
+}
