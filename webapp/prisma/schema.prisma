@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  clerkId   String   @unique
+  email     String   @unique
+  name      String?
+  plan      Plan     @default(FREE)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  characters  CustomCharacter[]
+  savedPrompts SavedPrompt[]
+  sequences    SavedSequence[]
+}
+
+enum Plan {
+  FREE
+  PRO
+  AGENCY
+}
+
+model CustomCharacter {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name        String
+  archetype   String
+  style       String
+  configJson  String   // JSON blob of full character config
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([userId])
+}
+
+model SavedPrompt {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  label           String
+  subject         String
+  shotType        String
+  characterKey    String?
+  hookKey         String?
+  outcomeScenario String?
+  platforms       String   // comma-separated platform list
+  outputJson      String   // full PlatformOutput[] JSON
+  createdAt       DateTime @default(now())
+
+  @@index([userId])
+}
+
+model SavedSequence {
+  id             String   @id @default(cuid())
+  userId         String
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  label          String
+  sequenceType   String
+  concept        String
+  characterKey   String?
+  hookKey        String?
+  platformTarget String
+  outputJson     String   // full VideoSequence JSON
+  createdAt      DateTime @default(now())
+
+  @@index([userId])
+}
