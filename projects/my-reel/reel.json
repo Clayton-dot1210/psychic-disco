@@ -1,0 +1,15 @@
+{
+  "title": "My Reel",
+  "phase": "1-Scripting",
+  "hook": "",
+  "script": "",
+  "caption": "",
+  "subject": "",
+  "shot_type": "portrait",
+  "model": "fal-ai/flux/dev",
+  "image_count": 5,
+  "audio": "voiceover.mp3",
+  "duration_seconds": 30,
+  "caption_lines": [],
+  "created_at": ""
+}

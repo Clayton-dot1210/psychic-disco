@@ -1,0 +1,23 @@
+{
+  "name": "psychic-disco",
+  "version": "1.0.0",
+  "description": "Terminal-first creative stack: fal.ai image generation + Remotion video assembly + Notion project tracking",
+  "scripts": {
+    "generate": "node generate.js",
+    "preview": "npx remotion preview src/index.ts",
+    "render": "npx remotion render src/index.ts ReelComposition output.mp4",
+    "render:reel": "npx remotion render src/index.ts ReelComposition --props='{\"projectDir\":\"projects/my-reel\"}' output/reel.mp4"
+  },
+  "dependencies": {
+    "@fal-ai/client": "^1.3.0",
+    "remotion": "^4.0.290",
+    "@remotion/cli": "^4.0.290",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.4.0"
+  }
+}
