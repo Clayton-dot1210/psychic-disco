@@ -1,0 +1,10 @@
+node_modules/
+dist/
+output/*.mp4
+output/*.mov
+projects/*/visuals/*.jpg
+projects/*/visuals/*.png
+projects/*/visuals/*.webp
+projects/*/clips/*.mp4
+*.mp4
+*.mov
