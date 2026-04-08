@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Content Studio | Brand Content & Creative Services</title>
+    <meta name="description" content="Professional AI-powered content creation for brands. Photography, video, social media, and full creative packages.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">AI Content Studio</a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#packages" class="nav-link">Packages</a></li>
+                <li><a href="#shoots" class="nav-link">Shoots</a></li>
+                <li><a href="#contact" class="nav-link nav-cta">Let's Work Together</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <p class="hero-tagline">AI-Powered Brand Content</p>
+            <h1 class="hero-title">Elevating Brands Through <span class="text-gradient">AI-Driven</span> Creative Content</h1>
+            <p class="hero-description">I create stunning visual content for brands using cutting-edge AI tools combined with expert creative direction. From product shoots to full campaign rollouts.</p>
+            <div class="hero-buttons">
+                <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                <a href="#packages" class="btn btn-outline">See Packages</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Brands Served</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Assets Created</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">10x</span>
+                    <span class="stat-label">Faster Delivery</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag">What I Do</p>
+                <h2 class="section-title">Services</h2>
+                <p class="section-subtitle">End-to-end AI content creation tailored for your brand's unique voice and vision.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-animate>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                    </div>
+                    <h3>AI Product Photography</h3>
+                    <p>Photorealistic product images generated and enhanced with AI. Perfect for e-commerce, social media, and advertising campaigns.</p>
+                    <ul class="service-features">
+                        <li>Product mockups & lifestyle shots</li>
+                        <li>Background generation & swaps</li>
+                        <li>Batch variations for A/B testing</li>
+                    </ul>
+                </div>
+                <div class="service-card" data-animate>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                    </div>
+                    <h3>AI Video Content</h3>
+                    <p>Dynamic video content crafted with AI tools for social reels, ads, and branded storytelling that captures attention.</p>
+                    <ul class="service-features">
+                        <li>Short-form social videos & reels</li>
+                        <li>AI-generated motion graphics</li>
+                        <li>Brand story animations</li>
+                    </ul>
+                </div>
+                <div class="service-card" data-animate>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h3>Social Media Content</h3>
+                    <p>Scroll-stopping social content designed to grow your audience and drive engagement across all platforms.</p>
+                    <ul class="service-features">
+                        <li>Feed posts & carousel designs</li>
+                        <li>Story & reel templates</li>
+                        <li>Platform-specific optimization</li>
+                    </ul>
+                </div>
+                <div class="service-card" data-animate>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    </div>
+                    <h3>Brand Identity & Assets</h3>
+                    <p>Complete visual identity systems built with AI assistance. Logos, color palettes, typography, and brand guidelines.</p>
+                    <ul class="service-features">
+                        <li>AI-assisted logo concepts</li>
+                        <li>Brand style guides</li>
+                        <li>Marketing collateral design</li>
+                    </ul>
+                </div>
+                <div class="service-card" data-animate>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <h3>Campaign Creative</h3>
+                    <p>Full campaign creative direction and asset production. From concept to delivery, powered by AI efficiency.</p>
+                    <ul class="service-features">
+                        <li>Ad creative & variations</li>
+                        <li>Email marketing visuals</li>
+                        <li>Landing page assets</li>
+                    </ul>
+                </div>
+                <div class="service-card" data-animate>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                    </div>
+                    <h3>UGC-Style AI Content</h3>
+                    <p>Authentic-looking user-generated content created with AI. Perfect for brands wanting relatable, organic-feeling visuals.</p>
+                    <ul class="service-features">
+                        <li>Lifestyle & "in-the-wild" shots</li>
+                        <li>Testimonial-style visuals</li>
+                        <li>Community content at scale</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag">My Work</p>
+                <h2 class="section-title">Portfolio</h2>
+                <p class="section-subtitle">A selection of AI-generated brand content across industries and styles.</p>
+            </div>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All Work</button>
+                <button class="filter-btn" data-filter="product">Product</button>
+                <button class="filter-btn" data-filter="social">Social</button>
+                <button class="filter-btn" data-filter="campaign">Campaigns</button>
+                <button class="filter-btn" data-filter="branding">Branding</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="product" data-animate>
+                    <div class="portfolio-placeholder" style="--hue: 220;">
+                        <span>Product Shot</span>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h4>Luxury Skincare Line</h4>
+                        <p>AI Product Photography</p>
+                    </div>
+                </div>
+                <div class="portfolio-item portfolio-item-wide" data-category="campaign" data-animate>
+                    <div class="portfolio-placeholder" style="--hue: 280;">
+                        <span>Campaign</span>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h4>Summer Collection Campaign</h4>
+                        <p>Full Campaign Creative</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="social" data-animate>
+                    <div class="portfolio-placeholder" style="--hue: 340;">
+                        <span>Social Content</span>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h4>Fitness Brand Reels</h4>
+                        <p>Social Media Content</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="branding" data-animate>
+                    <div class="portfolio-placeholder" style="--hue: 160;">
+                        <span>Brand Identity</span>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h4>Tech Startup Identity</h4>
+                        <p>Brand Identity & Assets</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="product" data-animate>
+                    <div class="portfolio-placeholder" style="--hue: 40;">
+                        <span>Product Shot</span>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h4>Artisan Coffee Brand</h4>
+                        <p>AI Product Photography</p>
+                    </div>
+                </div>
+                <div class="portfolio-item portfolio-item-wide" data-category="social" data-animate>
+                    <div class="portfolio-placeholder" style="--hue: 200;">
+                        <span>Social Content</span>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h4>Fashion Brand Feed</h4>
+                        <p>Social Media Content</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="campaign" data-animate>
+                    <div class="portfolio-placeholder" style="--hue: 100;">
+                        <span>Campaign</span>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h4>Wellness App Launch</h4>
+                        <p>Campaign Creative</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="branding" data-animate>
+                    <div class="portfolio-placeholder" style="--hue: 60;">
+                        <span>Brand Identity</span>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h4>Restaurant Rebrand</h4>
+                        <p>Brand Identity & Assets</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="packages" id="packages">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag">Pricing</p>
+                <h2 class="section-title">Packages</h2>
+                <p class="section-subtitle">Flexible packages designed to fit your brand's needs and budget.</p>
+            </div>
+            <div class="packages-grid">
+                <div class="package-card" data-animate>
+                    <div class="package-badge">Starter</div>
+                    <h3 class="package-name">Content Spark</h3>
+                    <p class="package-price"><span class="price-amount">$500</span><span class="price-period">/project</span></p>
+                    <p class="package-description">Perfect for small brands or one-off projects that need a quick creative boost.</p>
+                    <ul class="package-features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            5 AI-generated images
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            2 revision rounds
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            1 style direction
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Social-ready formats
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            3-day turnaround
+                        </li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline btn-full">Get Started</a>
+                </div>
+                <div class="package-card package-featured" data-animate>
+                    <div class="package-badge">Most Popular</div>
+                    <h3 class="package-name">Brand Builder</h3>
+                    <p class="package-price"><span class="price-amount">$1,500</span><span class="price-period">/month</span></p>
+                    <p class="package-description">For growing brands that need consistent, high-quality AI content every month.</p>
+                    <ul class="package-features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            20 AI-generated images
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            3 short-form videos
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Unlimited revisions
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Content calendar planning
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Platform-optimized formats
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Priority support
+                        </li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary btn-full">Get Started</a>
+                </div>
+                <div class="package-card" data-animate>
+                    <div class="package-badge">Premium</div>
+                    <h3 class="package-name">Full Studio</h3>
+                    <p class="package-price"><span class="price-amount">$3,500</span><span class="price-period">/month</span></p>
+                    <p class="package-description">The complete creative partner. Ideal for brands running multi-channel campaigns.</p>
+                    <ul class="package-features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            50+ AI-generated images
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            10 short-form videos
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Full campaign creative
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Brand style guide
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Dedicated creative direction
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Same-day turnaround
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Monthly strategy call
+                        </li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline btn-full">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shoots Section -->
+    <section class="shoots" id="shoots">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag">Creative Sessions</p>
+                <h2 class="section-title">Shoot Types</h2>
+                <p class="section-subtitle">Different shoot formats to match exactly what your brand needs.</p>
+            </div>
+            <div class="shoots-grid">
+                <div class="shoot-card" data-animate>
+                    <div class="shoot-image" style="--hue: 250;">
+                        <div class="shoot-number">01</div>
+                    </div>
+                    <div class="shoot-content">
+                        <h3>Product Flat Lay</h3>
+                        <p>Clean, editorial-style product arrangements. AI-generated backgrounds, lighting, and styling variations let you get dozens of options from a single concept.</p>
+                        <div class="shoot-details">
+                            <span class="shoot-detail-item">5-15 final images</span>
+                            <span class="shoot-detail-item">2-3 day delivery</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="shoot-card" data-animate>
+                    <div class="shoot-image" style="--hue: 320;">
+                        <div class="shoot-number">02</div>
+                    </div>
+                    <div class="shoot-content">
+                        <h3>Lifestyle & Lookbook</h3>
+                        <p>AI-crafted lifestyle imagery showing your products in real-world settings. Models, environments, and moods tailored to your target audience.</p>
+                        <div class="shoot-details">
+                            <span class="shoot-detail-item">10-25 final images</span>
+                            <span class="shoot-detail-item">3-5 day delivery</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="shoot-card" data-animate>
+                    <div class="shoot-image" style="--hue: 180;">
+                        <div class="shoot-number">03</div>
+                    </div>
+                    <div class="shoot-content">
+                        <h3>Social Content Batch</h3>
+                        <p>A full month's worth of social media visuals in one go. Feed posts, stories, reels covers, and highlights all in your brand style.</p>
+                        <div class="shoot-details">
+                            <span class="shoot-detail-item">20-40 assets</span>
+                            <span class="shoot-detail-item">5-7 day delivery</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="shoot-card" data-animate>
+                    <div class="shoot-image" style="--hue: 30;">
+                        <div class="shoot-number">04</div>
+                    </div>
+                    <div class="shoot-content">
+                        <h3>Campaign Shoot</h3>
+                        <p>Full creative production for a launch or campaign. Includes hero images, supporting visuals, ad creative, and all format variations you need.</p>
+                        <div class="shoot-details">
+                            <span class="shoot-detail-item">30-60+ assets</span>
+                            <span class="shoot-detail-item">7-10 day delivery</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="shoot-card" data-animate>
+                    <div class="shoot-image" style="--hue: 130;">
+                        <div class="shoot-number">05</div>
+                    </div>
+                    <div class="shoot-content">
+                        <h3>Video Content Day</h3>
+                        <p>AI-powered video content creation session. Short-form videos, motion graphics, and animated content optimized for every platform.</p>
+                        <div class="shoot-details">
+                            <span class="shoot-detail-item">5-10 videos</span>
+                            <span class="shoot-detail-item">5-7 day delivery</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="shoot-card" data-animate>
+                    <div class="shoot-image" style="--hue: 70;">
+                        <div class="shoot-number">06</div>
+                    </div>
+                    <div class="shoot-content">
+                        <h3>Brand Identity Sprint</h3>
+                        <p>A focused session to define or refresh your entire visual identity. Logo explorations, color systems, typography, and a complete brand guide.</p>
+                        <div class="shoot-details">
+                            <span class="shoot-detail-item">Full brand kit</span>
+                            <span class="shoot-detail-item">7-14 day delivery</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag">How It Works</p>
+                <h2 class="section-title">My Process</h2>
+                <p class="section-subtitle">Simple, transparent, and built for speed.</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step" data-animate>
+                    <div class="step-number">01</div>
+                    <h3>Discovery Call</h3>
+                    <p>We hop on a quick call to understand your brand, audience, goals, and aesthetic preferences.</p>
+                </div>
+                <div class="process-connector"></div>
+                <div class="process-step" data-animate>
+                    <div class="step-number">02</div>
+                    <h3>Creative Brief</h3>
+                    <p>I put together a detailed brief with mood boards, style references, and a content plan for your approval.</p>
+                </div>
+                <div class="process-connector"></div>
+                <div class="process-step" data-animate>
+                    <div class="step-number">03</div>
+                    <h3>AI Production</h3>
+                    <p>Using top AI tools and creative expertise, I produce all your content with precision and speed.</p>
+                </div>
+                <div class="process-connector"></div>
+                <div class="process-step" data-animate>
+                    <div class="step-number">04</div>
+                    <h3>Review & Deliver</h3>
+                    <p>You review everything, request revisions, and receive final files in all formats you need.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <p class="section-tag">Get In Touch</p>
+                    <h2 class="section-title">Let's Create Something Amazing</h2>
+                    <p>Ready to elevate your brand's visual content? Fill out the form and I'll get back to you within 24 hours.</p>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <span>hello@aicontentstudio.com</span>
+                        </div>
+                        <div class="contact-detail">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span>Available Worldwide (Remote)</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter/X">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@brand.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">What are you looking for?</label>
+                        <select id="service" name="service" required>
+                            <option value="" disabled selected>Select a service</option>
+                            <option value="product-photography">AI Product Photography</option>
+                            <option value="video-content">AI Video Content</option>
+                            <option value="social-media">Social Media Content</option>
+                            <option value="brand-identity">Brand Identity & Assets</option>
+                            <option value="campaign">Campaign Creative</option>
+                            <option value="ugc">UGC-Style AI Content</option>
+                            <option value="custom">Custom Package</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="budget">Budget Range</label>
+                        <select id="budget" name="budget">
+                            <option value="" disabled selected>Select budget range</option>
+                            <option value="under-500">Under $500</option>
+                            <option value="500-1500">$500 - $1,500</option>
+                            <option value="1500-3500">$1,500 - $3,500</option>
+                            <option value="3500-plus">$3,500+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell me about your project</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Describe your brand, what you're looking for, and any deadlines..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="nav-logo">AI Content Studio</a>
+                    <p>Creating next-level brand content with AI-powered creative tools.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#services">Services</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#packages">Packages</a>
+                    <a href="#shoots">Shoots</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 AI Content Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
