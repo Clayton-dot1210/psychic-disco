@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Asia & Australia Adventure ✈️</title>
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:    #f5a623;
+      --coral:   #ff6b6b;
+      --teal:    #2ec4b6;
+      --sky:     #4fc3f7;
+      --deep:    #1a1a2e;
+      --mid:     #16213e;
+      --light:   #e8f4f8;
+      --white:   #ffffff;
+      --shadow:  0 8px 32px rgba(0,0,0,.3);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--deep);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--deep); }
+    ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
+
+    /* ══════════════════════════════════════
+       HERO
+    ══════════════════════════════════════ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    }
+
+    /* Animated star-field */
+    .stars {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      background: white;
+      animation: twinkle var(--dur, 3s) var(--delay, 0s) infinite alternate;
+      opacity: .6;
+    }
+    @keyframes twinkle { from { opacity: .2; transform: scale(1); } to { opacity: 1; transform: scale(1.4); } }
+
+    /* Floating paper-plane */
+    .plane {
+      position: absolute;
+      font-size: 2.5rem;
+      animation: fly 12s linear infinite;
+      top: 20%;
+    }
+    @keyframes fly {
+      0%   { left: -5%; transform: rotate(-10deg); opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 1; }
+      100% { left: 105%; transform: rotate(10deg); opacity: 0; }
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--coral), var(--gold));
+      color: white;
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      padding: .4rem 1.2rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+      animation: fadeDown .8s ease both;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      animation: fadeDown .9s .1s ease both;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(90deg, var(--teal), var(--sky));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      margin-top: 1.2rem;
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      color: rgba(255,255,255,.75);
+      max-width: 600px;
+      animation: fadeDown 1s .2s ease both;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeDown 1s .35s ease both;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 2rem;
+      font-weight: 900;
+      background: linear-gradient(90deg, var(--gold), var(--coral));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-label { font-size: .8rem; color: rgba(255,255,255,.6); text-transform: uppercase; letter-spacing: .1em; }
+
+    .cta-btn {
+      display: inline-block;
+      margin-top: 2.5rem;
+      padding: .9rem 2.5rem;
+      background: linear-gradient(135deg, var(--teal), var(--sky));
+      color: var(--deep);
+      font-weight: 800;
+      font-size: 1rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(46,196,182,.4);
+      animation: fadeDown 1s .45s ease both;
+    }
+    .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(46,196,182,.6); }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ══════════════════════════════════════
+       SECTION WRAPPER
+    ══════════════════════════════════════ */
+    section {
+      padding: 5rem 1.5rem;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-title h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+    }
+    .section-title .line {
+      width: 60px; height: 4px;
+      background: linear-gradient(90deg, var(--teal), var(--sky));
+      border-radius: 2px;
+      margin: .8rem auto 0;
+    }
+    .section-title p { margin-top: 1rem; color: rgba(255,255,255,.65); font-size: 1.05rem; }
+
+    /* ══════════════════════════════════════
+       ROUTE MAP (SVG timeline)
+    ══════════════════════════════════════ */
+    .route-section { background: linear-gradient(180deg, var(--deep), var(--mid)); }
+
+    .timeline {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--teal), var(--coral), var(--gold), var(--sky));
+      border-radius: 2px;
+    }
+
+    .tl-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+      position: relative;
+      padding: 1.5rem 0;
+    }
+    .tl-item:nth-child(odd)  { flex-direction: row; }
+    .tl-item:nth-child(even) { flex-direction: row-reverse; }
+
+    .tl-card {
+      flex: 1;
+      max-width: 45%;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px;
+      padding: 1.4rem 1.6rem;
+      backdrop-filter: blur(8px);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .tl-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+
+    .tl-dot {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      z-index: 2;
+      box-shadow: 0 0 0 6px var(--mid);
+      flex-shrink: 0;
+    }
+
+    .tl-card h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: .3rem; }
+    .tl-card .country { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; opacity: .7; margin-bottom: .6rem; }
+    .tl-card p { font-size: .92rem; line-height: 1.6; color: rgba(255,255,255,.75); }
+    .tl-card .tags { margin-top: .8rem; display: flex; flex-wrap: wrap; gap: .4rem; }
+    .tag {
+      font-size: .72rem;
+      padding: .2rem .7rem;
+      border-radius: 50px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.15);
+      white-space: nowrap;
+    }
+
+    /* ══════════════════════════════════════
+       DESTINATION CARDS GRID
+    ══════════════════════════════════════ */
+    .destinations-section { background: var(--deep); }
+
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .dest-card {
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+      transition: transform .3s;
+    }
+    .dest-card:hover { transform: scale(1.03); }
+    .dest-card:hover .dest-overlay { opacity: 1; }
+
+    .dest-bg {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+    }
+
+    .dest-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,.85) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      opacity: .85;
+      transition: opacity .3s;
+    }
+
+    .dest-overlay h3 { font-size: 1.3rem; font-weight: 800; }
+    .dest-overlay .dest-country { font-size: .8rem; opacity: .8; text-transform: uppercase; letter-spacing: .1em; }
+    .dest-overlay .dest-vibe {
+      display: inline-block;
+      margin-top: .5rem;
+      font-size: .78rem;
+      padding: .25rem .75rem;
+      border-radius: 50px;
+      font-weight: 700;
+    }
+
+    .dest-rating {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: rgba(0,0,0,.6);
+      backdrop-filter: blur(6px);
+      border-radius: 50px;
+      padding: .3rem .8rem;
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    /* ══════════════════════════════════════
+       WHY YOU'LL LOVE IT (features)
+    ══════════════════════════════════════ */
+    .love-section { background: linear-gradient(135deg, var(--mid), #0d1b2a); }
+
+    .love-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .love-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: transform .3s, border-color .3s;
+    }
+    .love-card:hover { transform: translateY(-6px); border-color: var(--teal); }
+    .love-icon { font-size: 2.8rem; margin-bottom: 1rem; display: block; }
+    .love-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: .5rem; }
+    .love-card p { font-size: .9rem; color: rgba(255,255,255,.65); line-height: 1.6; }
+
+    /* ══════════════════════════════════════
+       FOOD SECTION
+    ══════════════════════════════════════ */
+    .food-section { background: var(--deep); }
+
+    .food-scroll {
+      display: flex;
+      gap: 1.2rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
+    }
+    .food-scroll::-webkit-scrollbar { height: 4px; }
+    .food-scroll::-webkit-scrollbar-thumb { background: var(--coral); border-radius: 2px; }
+
+    .food-card {
+      min-width: 200px;
+      background: rgba(255,255,255,.06);
+      border-radius: 16px;
+      padding: 1.5rem 1.2rem;
+      text-align: center;
+      scroll-snap-align: start;
+      border: 1px solid rgba(255,255,255,.08);
+      flex-shrink: 0;
+      transition: transform .2s;
+    }
+    .food-card:hover { transform: translateY(-4px); }
+    .food-card .food-emoji { font-size: 3rem; display: block; margin-bottom: .7rem; }
+    .food-card h4 { font-size: .95rem; font-weight: 800; margin-bottom: .3rem; }
+    .food-card .food-origin { font-size: .75rem; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: .08em; }
+
+    /* ══════════════════════════════════════
+       QUOTE BANNER
+    ══════════════════════════════════════ */
+    .quote-section {
+      background: linear-gradient(135deg, #1a6b5a, #0f4c75);
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+    .quote-text {
+      font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+      font-weight: 300;
+      font-style: italic;
+      max-width: 750px;
+      margin: 0 auto;
+      line-height: 1.6;
+      color: rgba(255,255,255,.92);
+    }
+    .quote-author {
+      margin-top: 1.2rem;
+      font-size: .9rem;
+      color: rgba(255,255,255,.55);
+      text-transform: uppercase;
+      letter-spacing: .15em;
+    }
+
+    /* ══════════════════════════════════════
+       PACKING LIST
+    ══════════════════════════════════════ */
+    .pack-section { background: var(--mid); }
+
+    .pack-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+    .pack-group h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 1rem;
+      padding-bottom: .5rem;
+      border-bottom: 2px solid rgba(46,196,182,.3);
+    }
+    .pack-list { list-style: none; }
+    .pack-list li {
+      padding: .45rem 0;
+      font-size: .9rem;
+      color: rgba(255,255,255,.75);
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+    }
+    .pack-list li::before {
+      content: '✓';
+      color: var(--teal);
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    /* ══════════════════════════════════════
+       TIPS ACCORDION
+    ══════════════════════════════════════ */
+    .tips-section { background: var(--deep); }
+
+    .accordion { display: flex; flex-direction: column; gap: .8rem; }
+
+    .acc-item {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .acc-head {
+      width: 100%;
+      background: none;
+      border: none;
+      color: white;
+      text-align: left;
+      padding: 1.2rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      transition: background .2s;
+    }
+    .acc-head:hover { background: rgba(255,255,255,.04); }
+    .acc-head .acc-icon { font-size: 1.2rem; transition: transform .3s; flex-shrink: 0; }
+    .acc-head.open .acc-icon { transform: rotate(45deg); }
+
+    .acc-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease, padding .4s;
+      padding: 0 1.5rem;
+    }
+    .acc-body.open {
+      max-height: 400px;
+      padding: 0 1.5rem 1.2rem;
+    }
+    .acc-body p, .acc-body ul { font-size: .92rem; color: rgba(255,255,255,.7); line-height: 1.7; }
+    .acc-body ul { padding-left: 1.2rem; }
+    .acc-body ul li { margin-bottom: .3rem; }
+
+    /* ══════════════════════════════════════
+       PHOTO MOSAIC (CSS art)
+    ══════════════════════════════════════ */
+    .mosaic-section { background: linear-gradient(180deg, var(--mid), var(--deep)); }
+
+    .mosaic {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 140px;
+      gap: .8rem;
+    }
+
+    .mosaic-cell {
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform .3s;
+    }
+    .mosaic-cell:hover { transform: scale(1.04); z-index: 2; }
+    .mosaic-cell.wide  { grid-column: span 2; }
+    .mosaic-cell.tall  { grid-row: span 2; }
+    .mosaic-label {
+      position: absolute;
+      bottom: .5rem; left: .7rem;
+      font-size: .7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      background: rgba(0,0,0,.5);
+      padding: .2rem .5rem;
+      border-radius: 4px;
+    }
+
+    /* ══════════════════════════════════════
+       CLOSING CTA
+    ══════════════════════════════════════ */
+    .cta-section {
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      text-align: center;
+      padding: 6rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+    .cta-section p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,.7);
+      max-width: 550px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+    .btn-pair { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-outline {
+      padding: .9rem 2rem;
+      border: 2px solid var(--teal);
+      border-radius: 50px;
+      color: var(--teal);
+      font-weight: 800;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+    .btn-outline:hover { background: var(--teal); color: var(--deep); }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    footer {
+      background: #0a0a15;
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      font-size: .85rem;
+      color: rgba(255,255,255,.35);
+    }
+    footer span { color: var(--coral); }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .timeline::before { left: 24px; }
+      .tl-item,
+      .tl-item:nth-child(even) {
+        flex-direction: column;
+        padding-left: 64px;
+      }
+      .tl-dot { left: 24px; top: 1.8rem; }
+      .tl-card { max-width: 100%; }
+      .mosaic { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<div class="hero">
+  <!-- Stars -->
+  <div class="stars" id="stars"></div>
+
+  <!-- Flying plane -->
+  <div class="plane">✈️</div>
+
+  <div class="hero-badge">A Gift Just for You 💝</div>
+
+  <h1>
+    Our Dream Trip Through<br>
+    <span class="highlight">Asia &amp; Australia</span>
+  </h1>
+  <p class="hero-sub">
+    Adventures, flavours, sunsets, and memories we'll treasure forever —
+    all waiting for us on the other side of the world.
+  </p>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">12+</div>
+      <div class="stat-label">Destinations</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Continents</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">Memories</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">1</div>
+      <div class="stat-label">Incredible Wife</div>
+    </div>
+  </div>
+
+  <a class="cta-btn" href="#route">Explore Our Route ↓</a>
+</div>
+
+<!-- ═══════════════════════════════════════
+     ROUTE TIMELINE
+════════════════════════════════════════ -->
+<section class="route-section" id="route">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Adventure Route</h2>
+      <div class="line"></div>
+      <p>Every stop hand-picked, every experience unforgettable</p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="country">🇯🇵 Japan</div>
+          <h3>Tokyo — Neon &amp; Serenity</h3>
+          <p>Begin our journey in the city that never sleeps yet somehow finds peace. Shibuya crossing at golden hour, a matcha ceremony in Harajuku, and ramen that warms the soul.</p>
+          <div class="tags">
+            <span class="tag">🍣 Sushi</span>
+            <span class="tag">🌸 Cherry Blossoms</span>
+            <span class="tag">🗼 Skytree</span>
+            <span class="tag">♨️ Onsen</span>
+          </div>
+        </div>
+        <div class="tl-dot" style="background:linear-gradient(135deg,#ff6b6b,#f5a623);">🗼</div>
+        <div style="flex:1;max-width:45%;"></div>
+      </div>
+
+      <div class="tl-item">
+        <div style="flex:1;max-width:45%;"></div>
+        <div class="tl-dot" style="background:linear-gradient(135deg,#4fc3f7,#2ec4b6);">🌸</div>
+        <div class="tl-card">
+          <div class="country">🇯🇵 Japan</div>
+          <h3>Kyoto — Ancient &amp; Magical</h3>
+          <p>Wander through thousands of torii gates at Fushimi Inari at dawn, cycle past bamboo groves, and watch maiko dancers in the lantern-lit alleys of Gion.</p>
+          <div class="tags">
+            <span class="tag">⛩️ Fushimi Inari</span>
+            <span class="tag">🎋 Arashiyama</span>
+            <span class="tag">🍵 Tea Ceremony</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="country">🇹🇭 Thailand</div>
+          <h3>Bangkok — Vibrant &amp; Delicious</h3>
+          <p>Float through the Damnoen Saduak market on a longtail boat, marvel at glittering temples, and dive into the most exciting street food scene on earth.</p>
+          <div class="tags">
+            <span class="tag">🛺 Tuk Tuk</span>
+            <span class="tag">🍜 Pad Thai</span>
+            <span class="tag">🏛️ Grand Palace</span>
+            <span class="tag">🌃 Rooftop Bars</span>
+          </div>
+        </div>
+        <div class="tl-dot" style="background:linear-gradient(135deg,#f5a623,#ff6b6b);">🐘</div>
+        <div style="flex:1;max-width:45%;"></div>
+      </div>
+
+      <div class="tl-item">
+        <div style="flex:1;max-width:45%;"></div>
+        <div class="tl-dot" style="background:linear-gradient(135deg,#2ec4b6,#4fc3f7);">🏖️</div>
+        <div class="tl-card">
+          <div class="country">🇹🇭 Thailand</div>
+          <h3>Koh Samui — Sun &amp; Bliss</h3>
+          <p>Turquoise water so clear you can count the fish. Hammocks, coconuts, bioluminescent nights, and the kind of relaxation that actually recharges you.</p>
+          <div class="tags">
+            <span class="tag">🤿 Snorkelling</span>
+            <span class="tag">🌅 Sunsets</span>
+            <span class="tag">🥥 Coconut Shakes</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="country">🇻🇳 Vietnam</div>
+          <h3>Hội An — Lanterns &amp; Heritage</h3>
+          <p>The Ancient Town glows amber and rose each evening as thousands of silk lanterns are released over the Thu Bon river. Time slows here. Tailored dresses, cycling through rice paddies, and bánh mì that redefines sandwiches.</p>
+          <div class="tags">
+            <span class="tag">🏮 Lantern Festival</span>
+            <span class="tag">🚴 Cycling</span>
+            <span class="tag">🥖 Bánh Mì</span>
+            <span class="tag">👗 Ao Dai</span>
+          </div>
+        </div>
+        <div class="tl-dot" style="background:linear-gradient(135deg,#ff6b6b,#2ec4b6);">🏮</div>
+        <div style="flex:1;max-width:45%;"></div>
+      </div>
+
+      <div class="tl-item">
+        <div style="flex:1;max-width:45%;"></div>
+        <div class="tl-dot" style="background:linear-gradient(135deg,#f5a623,#2ec4b6);">🦁</div>
+        <div class="tl-card">
+          <div class="country">🇸🇬 Singapore</div>
+          <h3>Singapore — Futuristic Wonder</h3>
+          <p>Gardens by the Bay's supertrees light up in a nightly symphony. Hawker centres serving the world's cheapest Michelin-starred meals. A city that manages to be both jungle and metropolis.</p>
+          <div class="tags">
+            <span class="tag">🌳 Gardens by the Bay</span>
+            <span class="tag">🦁 Marina Bay</span>
+            <span class="tag">🍱 Hawker Food</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="country">🇮🇩 Indonesia</div>
+          <h3>Bali — Soul &amp; Spirit</h3>
+          <p>Rice terraces cascade like emerald staircases at Tegallalang. Temple offerings perfume the morning air. Watch the sunrise over Mount Batur, then surf the afternoon away at Seminyak.</p>
+          <div class="tags">
+            <span class="tag">🌾 Rice Terraces</span>
+            <span class="tag">🏄 Surfing</span>
+            <span class="tag">💆 Spa Day</span>
+            <span class="tag">🌋 Volcano Trek</span>
+          </div>
+        </div>
+        <div class="tl-dot" style="background:linear-gradient(135deg,#4fc3f7,#f5a623);">🌺</div>
+        <div style="flex:1;max-width:45%;"></div>
+      </div>
+
+      <div class="tl-item">
+        <div style="flex:1;max-width:45%;"></div>
+        <div class="tl-dot" style="background:linear-gradient(135deg,#ff6b6b,#4fc3f7);">🦘</div>
+        <div class="tl-card">
+          <div class="country">🇦🇺 Australia</div>
+          <h3>Sydney — Iconic &amp; Sparkling</h3>
+          <p>Nothing prepares you for your first sight of the Opera House glittering above the harbour. Coastal walks from Bondi to Coogee, world-class brunch culture, and sunsets that paint the sky pink.</p>
+          <div class="tags">
+            <span class="tag">🎭 Opera House</span>
+            <span class="tag">🌊 Bondi Beach</span>
+            <span class="tag">🌉 Harbour Bridge</span>
+            <span class="tag">☕ Best Coffee</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="country">🇦🇺 Australia</div>
+          <h3>Great Barrier Reef — Underwater Paradise</h3>
+          <p>The largest living structure on Earth, visible from space. Snorkel through coral gardens bursting with colour, swim with turtles, and feel the profound privilege of being in one of the planet's greatest wonders.</p>
+          <div class="tags">
+            <span class="tag">🐠 Snorkelling</span>
+            <span class="tag">🐢 Sea Turtles</span>
+            <span class="tag">🐡 Coral Gardens</span>
+            <span class="tag">🤿 Diving</span>
+          </div>
+        </div>
+        <div class="tl-dot" style="background:linear-gradient(135deg,#2ec4b6,#4fc3f7);">🐠</div>
+        <div style="flex:1;max-width:45%;"></div>
+      </div>
+
+      <div class="tl-item">
+        <div style="flex:1;max-width:45%;"></div>
+        <div class="tl-dot" style="background:linear-gradient(135deg,#f5a623,#ff6b6b);">🪨</div>
+        <div class="tl-card">
+          <div class="country">🇦🇺 Australia</div>
+          <h3>Uluru — Sacred &amp; Breathtaking</h3>
+          <p>Standing before Uluru at sunrise as it transforms from ochre to blood-orange to deep purple is one of the most humbling experiences on earth. A place of ancient stories and extraordinary energy.</p>
+          <div class="tags">
+            <span class="tag">🌄 Sunrise Walk</span>
+            <span class="tag">⭐ Stargazing</span>
+            <span class="tag">🎨 Indigenous Art</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="country">🇦🇺 Australia</div>
+          <h3>Melbourne — Culture &amp; Coffee</h3>
+          <p>End in Australia's cultural capital: world-ranked coffee, laneway street art that rivals any gallery, rooftop bars, and a food scene that draws chefs from around the globe.</p>
+          <div class="tags">
+            <span class="tag">🎨 Hosier Lane</span>
+            <span class="tag">☕ Best Flat White</span>
+            <span class="tag">🏟️ MCG</span>
+            <span class="tag">🍷 Yarra Valley</span>
+          </div>
+        </div>
+        <div class="tl-dot" style="background:linear-gradient(135deg,#2ec4b6,#ff6b6b);">🎨</div>
+        <div style="flex:1;max-width:45%;"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     DESTINATION CARDS
+════════════════════════════════════════ -->
+<section class="destinations-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Top Highlights</h2>
+      <div class="line"></div>
+      <p>Moments that will stay with us for a lifetime</p>
+    </div>
+
+    <div class="dest-grid">
+      <!-- Card 1 -->
+      <div class="dest-card">
+        <div class="dest-bg" style="background:linear-gradient(135deg,#1a1a2e,#16213e);">🗼</div>
+        <div class="dest-overlay">
+          <div class="dest-country">Japan</div>
+          <h3>Tokyo Night Lights</h3>
+          <div class="dest-vibe" style="background:rgba(255,107,107,.25);color:#ff6b6b;">Must Experience</div>
+        </div>
+        <div class="dest-rating">★ 5.0</div>
+      </div>
+      <!-- Card 2 -->
+      <div class="dest-card">
+        <div class="dest-bg" style="background:linear-gradient(135deg,#0d1b2a,#1a3a4a);">🏖️</div>
+        <div class="dest-overlay">
+          <div class="dest-country">Thailand</div>
+          <h3>Tropical Islands</h3>
+          <div class="dest-vibe" style="background:rgba(79,195,247,.25);color:#4fc3f7;">Pure Relaxation</div>
+        </div>
+        <div class="dest-rating">★ 5.0</div>
+      </div>
+      <!-- Card 3 -->
+      <div class="dest-card">
+        <div class="dest-bg" style="background:linear-gradient(135deg,#1a0a2e,#2d1b5a);">🏮</div>
+        <div class="dest-overlay">
+          <div class="dest-country">Vietnam</div>
+          <h3>Hội An By Night</h3>
+          <div class="dest-vibe" style="background:rgba(245,166,35,.25);color:#f5a623;">Utterly Romantic</div>
+        </div>
+        <div class="dest-rating">★ 5.0</div>
+      </div>
+      <!-- Card 4 -->
+      <div class="dest-card">
+        <div class="dest-bg" style="background:linear-gradient(135deg,#002a1a,#004d30);">🌺</div>
+        <div class="dest-overlay">
+          <div class="dest-country">Bali</div>
+          <h3>Rice Terrace Sunrise</h3>
+          <div class="dest-vibe" style="background:rgba(46,196,182,.25);color:#2ec4b6;">Unforgettable</div>
+        </div>
+        <div class="dest-rating">★ 5.0</div>
+      </div>
+      <!-- Card 5 -->
+      <div class="dest-card">
+        <div class="dest-bg" style="background:linear-gradient(135deg,#001a2e,#003a5c);">🎭</div>
+        <div class="dest-overlay">
+          <div class="dest-country">Australia</div>
+          <h3>Sydney Harbour</h3>
+          <div class="dest-vibe" style="background:rgba(79,195,247,.25);color:#4fc3f7;">Iconic</div>
+        </div>
+        <div class="dest-rating">★ 5.0</div>
+      </div>
+      <!-- Card 6 -->
+      <div class="dest-card">
+        <div class="dest-bg" style="background:linear-gradient(135deg,#1a0a00,#3d1a00);">🐠</div>
+        <div class="dest-overlay">
+          <div class="dest-country">Australia</div>
+          <h3>Great Barrier Reef</h3>
+          <div class="dest-vibe" style="background:rgba(245,166,35,.25);color:#f5a623;">Wonder of the World</div>
+        </div>
+        <div class="dest-rating">★ 5.0</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PHOTO MOSAIC
+════════════════════════════════════════ -->
+<section class="mosaic-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Moments We'll Make</h2>
+      <div class="line"></div>
+    </div>
+    <div class="mosaic">
+      <div class="mosaic-cell wide" style="background:linear-gradient(135deg,#1a1a2e,#302b63);">🌸<span class="mosaic-label">Cherry Blossoms</span></div>
+      <div class="mosaic-cell" style="background:linear-gradient(135deg,#0d3b2e,#145a3e);">🐢<span class="mosaic-label">Sea Turtles</span></div>
+      <div class="mosaic-cell" style="background:linear-gradient(135deg,#3b1a0d,#5a2e14);">🌅<span class="mosaic-label">Sunrise</span></div>
+      <div class="mosaic-cell tall" style="background:linear-gradient(135deg,#0a1a3b,#163059);">⛩️<span class="mosaic-label">Torii Gates</span></div>
+      <div class="mosaic-cell" style="background:linear-gradient(135deg,#1a2e0d,#2e4a16);">🌾<span class="mosaic-label">Rice Terraces</span></div>
+      <div class="mosaic-cell" style="background:linear-gradient(135deg,#2e0d1a,#4a1628);">🏮<span class="mosaic-label">Lanterns</span></div>
+      <div class="mosaic-cell wide" style="background:linear-gradient(135deg,#0d2e2e,#164a4a);">🐠<span class="mosaic-label">Coral Reef</span></div>
+      <div class="mosaic-cell" style="background:linear-gradient(135deg,#2e2e0d,#4a4a16);">🌃<span class="mosaic-label">City Lights</span></div>
+      <div class="mosaic-cell" style="background:linear-gradient(135deg,#1a0d2e,#2e1659);">🎭<span class="mosaic-label">Sydney Opera</span></div>
+      <div class="mosaic-cell" style="background:linear-gradient(135deg,#2e1a0d,#4a2e16);">🪨<span class="mosaic-label">Uluru</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     WHY YOU'LL LOVE IT
+════════════════════════════════════════ -->
+<section class="love-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Why You'll Absolutely Love It</h2>
+      <div class="line"></div>
+      <p>This trip was made with you in mind — every single detail</p>
+    </div>
+
+    <div class="love-grid">
+      <div class="love-card">
+        <span class="love-icon">🌅</span>
+        <h3>Epic Sunrises &amp; Sunsets</h3>
+        <p>From Bali's volcanic horizons to Australia's desert skies — every evening and morning will take your breath away.</p>
+      </div>
+      <div class="love-card">
+        <span class="love-icon">🍜</span>
+        <h3>World's Best Food</h3>
+        <p>Asia's street food is a superpower. Every alley hides a flavour you'll dream about for years.</p>
+      </div>
+      <div class="love-card">
+        <span class="love-icon">💆‍♀️</span>
+        <h3>Ultimate Relaxation</h3>
+        <p>Thai massages, Balinese spa rituals, hammocks on white-sand beaches — pure, guilt-free bliss.</p>
+      </div>
+      <div class="love-card">
+        <span class="love-icon">📸</span>
+        <h3>Incredible Photos</h3>
+        <p>Every corner is a postcard. Your camera roll will be full of images that don't look real.</p>
+      </div>
+      <div class="love-card">
+        <span class="love-icon">🌿</span>
+        <h3>Nature at its Finest</h3>
+        <p>Coral reefs, rainforests, rice terraces, deserts, and pristine beaches — all in one trip.</p>
+      </div>
+      <div class="love-card">
+        <span class="love-icon">🧡</span>
+        <h3>Just the Two of Us</h3>
+        <p>Every sunset watched together, every meal shared, every adventure taken hand in hand.</p>
+      </div>
+      <div class="love-card">
+        <span class="love-icon">🎌</span>
+        <h3>Rich Cultures</h3>
+        <p>Ancient temples, living traditions, warm hospitality — cultures that genuinely welcome you in.</p>
+      </div>
+      <div class="love-card">
+        <span class="love-icon">🌊</span>
+        <h3>Crystal Clear Water</h3>
+        <p>From Koh Samui to the Great Barrier Reef — the water is so clear and warm it feels like a dream.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOD SECTION
+════════════════════════════════════════ -->
+<section class="food-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>A Foodie's Paradise</h2>
+      <div class="line"></div>
+      <p>Scroll through the flavours waiting for us</p>
+    </div>
+
+    <div class="food-scroll">
+      <div class="food-card"><span class="food-emoji">🍣</span><h4>Omakase Sushi</h4><div class="food-origin">Tokyo, Japan</div></div>
+      <div class="food-card"><span class="food-emoji">🍜</span><h4>Tonkotsu Ramen</h4><div class="food-origin">Osaka, Japan</div></div>
+      <div class="food-card"><span class="food-emoji">🥢</span><h4>Pad Thai</h4><div class="food-origin">Bangkok, Thailand</div></div>
+      <div class="food-card"><span class="food-emoji">🥥</span><h4>Coconut Ice Cream</h4><div class="food-origin">Chiang Mai, Thailand</div></div>
+      <div class="food-card"><span class="food-emoji">🥖</span><h4>Bánh Mì</h4><div class="food-origin">Hội An, Vietnam</div></div>
+      <div class="food-card"><span class="food-emoji">🍲</span><h4>Pho</h4><div class="food-origin">Hanoi, Vietnam</div></div>
+      <div class="food-card"><span class="food-emoji">🦀</span><h4>Chilli Crab</h4><div class="food-origin">Singapore</div></div>
+      <div class="food-card"><span class="food-emoji">🍛</span><h4>Laksa</h4><div class="food-origin">Singapore</div></div>
+      <div class="food-card"><span class="food-emoji">🥗</span><h4>Nasi Goreng</h4><div class="food-origin">Bali, Indonesia</div></div>
+      <div class="food-card"><span class="food-emoji">☕</span><h4>Flat White</h4><div class="food-origin">Melbourne, Australia</div></div>
+      <div class="food-card"><span class="food-emoji">🦞</span><h4>Moreton Bay Bug</h4><div class="food-origin">Queensland, Australia</div></div>
+      <div class="food-card"><span class="food-emoji">🥧</span><h4>Pavlova</h4><div class="food-origin">Australia</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     QUOTE
+════════════════════════════════════════ -->
+<div class="quote-section">
+  <p class="quote-text">
+    "The world is a book, and those who do not travel read only one page —
+    but those who travel together write a whole library."
+  </p>
+  <p class="quote-author">— Made with love, for my favourite person</p>
+</div>
+
+<!-- ═══════════════════════════════════════
+     TIPS ACCORDION
+════════════════════════════════════════ -->
+<section class="tips-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Good to Know</h2>
+      <div class="line"></div>
+      <p>A few helpful tips so we can focus on the fun</p>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>🌡️ Best Time to Visit</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <ul>
+            <li><strong>Japan:</strong> March–May for cherry blossoms; October–November for autumn colours.</li>
+            <li><strong>Thailand &amp; Vietnam:</strong> November–March for dry weather and cooler temperatures.</li>
+            <li><strong>Bali:</strong> April–October is dry season — perfect beach weather.</li>
+            <li><strong>Australia:</strong> September–November (spring) is ideal — warm, not too hot, fewer crowds.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>💰 Money-Saving Magic</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <ul>
+            <li>Eat at hawker centres and street stalls — the food is often better and always cheaper.</li>
+            <li>Book flights 3–4 months ahead for the best prices, especially long-haul.</li>
+            <li>Get a local SIM card on arrival — it's fast, cheap and essential.</li>
+            <li>Carry small cash for markets and tuk-tuks; cards for hotels.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>💊 Health &amp; Wellbeing</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <ul>
+            <li>Stay hydrated — tropical heat is deceptively draining.</li>
+            <li>High-factor sunscreen every day, even when it's cloudy.</li>
+            <li>Check if any vaccinations are needed well in advance (Hep A, typhoid, Japanese encephalitis).</li>
+            <li>Travel insurance that covers adventure activities is a must.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>🎒 Packing Smart</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <p>Pack light — you'll want space for souvenirs! Breathable linen and cotton clothes are your best friend in the heat. A lightweight rain jacket folds to almost nothing but saves the day. Comfortable walking shoes that don't look like hiking boots are worth their weight in gold.</p>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" onclick="toggleAcc(this)">
+          <span>💑 Romance Tips</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <ul>
+            <li>Book a private villa in Bali for at least a few nights — they're surprisingly affordable and utterly magical.</li>
+            <li>Pre-book a sunset dinner cruise in Sydney Harbour.</li>
+            <li>Watch the Hội An lantern festival on the 14th of each lunar month.</li>
+            <li>A couples' Balinese massage is a non-negotiable joy.</li>
+            <li>Kyoto at dawn — before the crowds — is the most romantic place on earth.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PACKING LIST
+════════════════════════════════════════ -->
+<section class="pack-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Packing List</h2>
+      <div class="line"></div>
+      <p>Everything we need, nothing we don't</p>
+    </div>
+
+    <div class="pack-columns">
+      <div class="pack-group">
+        <h3>Clothing</h3>
+        <ul class="pack-list">
+          <li>Lightweight dresses &amp; linen shirts</li>
+          <li>Swimwear (bring extras!)</li>
+          <li>1 smart outfit for nice dinners</li>
+          <li>Comfortable walking shoes</li>
+          <li>Sandals &amp; flip flops</li>
+          <li>Light rain jacket</li>
+          <li>Modest wrap for temples</li>
+          <li>Socks &amp; underwear ×7</li>
+        </ul>
+      </div>
+      <div class="pack-group">
+        <h3>Tech &amp; Gear</h3>
+        <ul class="pack-list">
+          <li>Camera + spare battery</li>
+          <li>Universal power adapter</li>
+          <li>Portable charger / power bank</li>
+          <li>Waterproof phone case</li>
+          <li>Noise-cancelling earbuds</li>
+          <li>E-reader / tablet</li>
+          <li>Reusable water bottle</li>
+        </ul>
+      </div>
+      <div class="pack-group">
+        <h3>Health &amp; Beauty</h3>
+        <ul class="pack-list">
+          <li>SPF 50+ sunscreen</li>
+          <li>Insect repellent</li>
+          <li>Travel first-aid kit</li>
+          <li>Antihistamines</li>
+          <li>Electrolyte sachets</li>
+          <li>Favourite moisturiser</li>
+          <li>Reef-safe sunscreen for reef days</li>
+        </ul>
+      </div>
+      <div class="pack-group">
+        <h3>Documents &amp; Money</h3>
+        <ul class="pack-list">
+          <li>Passports (check expiry!)</li>
+          <li>Travel insurance documents</li>
+          <li>Vaccination records</li>
+          <li>Hotel booking confirmations</li>
+          <li>Emergency contact card</li>
+          <li>Mix of cash &amp; travel card</li>
+          <li>Visa e-approvals (printed)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CLOSING CTA
+════════════════════════════════════════ -->
+<div class="cta-section">
+  <div class="stars" id="stars2"></div>
+  <h2>Ready for the Adventure<br>of a Lifetime? 🌏</h2>
+  <p>
+    Every memory we make together becomes the greatest story we'll ever tell.
+    This trip is our next chapter — and it's going to be absolutely extraordinary.
+  </p>
+  <div class="btn-pair">
+    <a class="cta-btn" href="#route">View the Full Route</a>
+    <a class="btn-outline" href="#route">See All Destinations</a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer>
+  Made with <span>♥</span> especially for you &nbsp;·&nbsp; Asia &amp; Australia &nbsp;·&nbsp;
+  The adventure of a lifetime awaits us 🌏
+</footer>
+
+<!-- ═══════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════ -->
+<script>
+  // Generate star fields
+  function makeStars(containerId, count) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    for (let i = 0; i < count; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      const size = Math.random() * 3 + 1;
+      s.style.cssText = `
+        width:${size}px; height:${size}px;
+        left:${Math.random()*100}%;
+        top:${Math.random()*100}%;
+        --dur:${2 + Math.random()*4}s;
+        --delay:${Math.random()*3}s;
+      `;
+      container.appendChild(s);
+    }
+  }
+  makeStars('stars', 120);
+  makeStars('stars2', 80);
+
+  // Accordion
+  function toggleAcc(btn) {
+    const body = btn.nextElementSibling;
+    const isOpen = body.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.acc-body').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.acc-head').forEach(h => h.classList.remove('open'));
+    // Open clicked if it was closed
+    if (!isOpen) {
+      body.classList.add('open');
+      btn.classList.add('open');
+    }
+  }
+
+  // Scroll-triggered fade-in for cards
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.tl-card, .dest-card, .love-card, .food-card, .mosaic-cell').forEach(el => {
+    el.style.cssText += 'opacity:0; transform:translateY(24px); transition: opacity .6s ease, transform .6s ease, box-shadow .3s;';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
